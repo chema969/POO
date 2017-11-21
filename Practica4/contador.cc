@@ -1,5 +1,6 @@
 #include "contador.h"
 #include <list>
+using namespace std;
  Contador Contador::operator=(const Contador &c){
     contador_=c.contador_;
      guarda(contador_);
@@ -42,7 +43,7 @@ Contador operator+(const int &a,const Contador &c){
   Contador x;
   if((c.contador_+a)<c.maximo_)
   x.contador_=c.contador_+a;  
-  guarda(x.contador_);
+  x.guarda(x.contador_);
   return x;
   }
 
@@ -50,7 +51,7 @@ Contador operator+(const Contador &c,const int &a){
   Contador x;
   if((c.contador_+a)<c.maximo_)
   x.contador_=c.contador_+a; 
-  guarda(x.contador_); 
+  x.guarda(x.contador_); 
   return x;
   }
 
@@ -58,7 +59,7 @@ Contador operator-(const int &a,const Contador &c){
   Contador x;
   if((c.contador_-a)>c.minimo_)
   x.contador_=c.contador_-a;  
-  guarda(x.contador_);
+  x.guarda(x.contador_);
   return x;
   }
 
@@ -66,16 +67,16 @@ Contador operator-(const Contador &c,const int &a){
   Contador x;
   if((c.contador_+a)>c.minimo_)
   x.contador_=c.contador_-a;  
-  guarda(x.contador_);
+  x.guarda(x.contador_);
   return x;
   }
 
 Contador Contador::undo(int n){
   list <int>::iterator it,j;
-  it=aux_.end();
+  it=aux_.begin();
   for(int i=0;i<n;i++){
     j=it;
-    it--;
+    it++;
     aux_.erase(j);
    }
   contador_=*it;

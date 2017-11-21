@@ -4,8 +4,8 @@
 class Contador{
    private:
     int contador_,minimo_,maximo_;
-    list <int> aux_;
-    void guarda(int i){aux_.push_back(i);}
+    std::list <int> aux_;
+    void guarda(int i){aux_.push_front(i);}
    public:
     Contador(int minimo=0,int maximo=1000,int contador=0){minimo_=minimo;maximo_=maximo;contador_=contador;}
     inline int get()const{return contador_;}
