@@ -11,7 +11,7 @@ using namespace std;
 Ruleta::Ruleta(Crupier crupier):crupier_(crupier){
   bola_=-1;
   banca_=1000000;
-
+  vecesbola_=0;
   }
 
 bool Ruleta::setBanca(int i){
@@ -25,6 +25,7 @@ bool Ruleta::setBola(int i){
   if(i<0||i>36)return false;
   else{
     bola_=i;
+    vecesbola_++;
     return true;
     }
 }
@@ -252,10 +253,14 @@ void Ruleta::getPremios(){
 } 
 
 
-
-
-
-
-
-
+void Ruleta::getEstadoRuleta(int &numjugadores,int &sumdinero,int &vecesbola,int &banca){
+    numjugadores=jugadores_.size();
+    list <Jugador>::iterator it; 
+    sumdinero=0;
+    for(it=jugadores_.begin();it!=jugadores_.end();++it)
+       sumdinero=sumdinero+it->getDinero();
+    sumdinero=banca_+sumdinero;
+    vecesbola=vecesbola_;
+    banca=1000000-banca_;
+}
 

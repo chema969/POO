@@ -71,7 +71,8 @@ Contador operator-(const Contador &c,const int &a){
   return x;
   }
 
-Contador Contador::undo(int n){
+bool Contador::undo(int n){
+ if(aux_.size()<n) return false;
   list <int>::iterator it,j;
   it=aux_.begin();
   for(int i=0;i<n;i++){
@@ -80,5 +81,5 @@ Contador Contador::undo(int n){
     aux_.erase(j);
    }
   contador_=*it;
-  return *this;
+  return true;
   }  

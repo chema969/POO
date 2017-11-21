@@ -19,7 +19,7 @@ class Contador{
     friend Contador operator+(const Contador &c,const int &a);
     friend Contador operator-(const int &a, const Contador &c);
     friend Contador operator-(const Contador &c,const int &a); 
-    Contador undo(int n);  
+    bool undo(int n=1);  
 };
 
 

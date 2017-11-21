@@ -23,6 +23,8 @@ int main(){
  cout<<c.get()<<endl;
  c=c-4;
  cout<<c.get()<<endl;
- c.undo(4);
+ c.undo(-4);
  cout<<c.get()<<endl;
+ c.undo(3);
+ cout<<c.get()<<endl;  
  }

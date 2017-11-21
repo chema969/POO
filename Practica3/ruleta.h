@@ -7,7 +7,7 @@
 using namespace std;
 class Ruleta{
   private: 
-   int banca_,bola_;
+   int banca_,bola_,vecesbola_;
    list <Jugador> jugadores_;
    Crupier crupier_;
 /*PROC deleteJugador(DNI) DEV (true si no existe, false si existe)
@@ -102,5 +102,6 @@ class Ruleta{
    EFECTOS pueba si las apuestas del jugador se han cumplido o no y modifica la banca y el dinero del jugador
    */    
    void getPremios();
+   void getEstadoRuleta(int &numjugadores,int &sumdinero,int &vecesbola,int &banca);
 };
 #endif
