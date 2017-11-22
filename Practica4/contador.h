@@ -7,7 +7,7 @@ class Contador{
     std::list <int> aux_;
     void guarda(int i){aux_.push_front(i);}
    public:
-    Contador(int minimo=0,int maximo=1000,int contador=0){minimo_=minimo;maximo_=maximo;contador_=contador;}
+    Contador(int minimo=0,int maximo=1000,int contador=0);
     inline int get()const{return contador_;}
     Contador operator=(const Contador &c);
     Contador operator=(const int &c);
