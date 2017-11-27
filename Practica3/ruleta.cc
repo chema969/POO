@@ -70,7 +70,7 @@ int Ruleta::deleteJugador(const string dni){
    else{
     if(!no_existe(dni)){
      list<Jugador>::iterator it; 
-     for(it=begin(jugadores_);it!=jugadores_.end();++it){
+     for(it=jugadores_.begin();it!=jugadores_.end();++it){
        if(it->getDNI()==dni){
          jugadores_.erase(it);
          return 1;
@@ -112,7 +112,7 @@ void Ruleta::leeJugadores(){
     getline(fichero,aux,',');    
     j.setPais(aux);
     getline(fichero,aux,'\n');  
-    int i=stoi(aux); 
+    int i=atoi(aux.c_str()); 
     j.setDinero(i);
     jugadores_.push_back(j);
    }
@@ -133,7 +133,7 @@ void Ruleta::getPremios(){
      apuesta=it->getApuestas();
      for(i=apuesta.begin();i!=apuesta.end();++i){
         if(i->tipo==1){
-          if(getBola()==stoi(i->valor)){
+          if(getBola()==atoi((i->valor).c_str())){
             it->setDinero(it->getDinero()+(i->cantidad)*35); 
             setBanca(getBanca()-(i->cantidad)*35);
             }
