@@ -2,6 +2,8 @@
 #include <vector>    
 #include <algorithm> 
 #include <string>
+#include <cstdlib>
+#include <ctime>
 #include "jugador.h"
 
 using namespace std;
@@ -10,12 +12,14 @@ bool menmay(Jugador i,Jugador j);
 int main(){
   vector <Jugador> j;
   int d;
+  srand(time(NULL));
   for(int i=0;i<5;i++){
+     int a,b;
      string aux,aux2;
-     cout<<"introduce dni:";
-     cin>>aux;
-     cout<<"Introduce codigo:";
-     cin>>aux2;
+     a=rand()%1000;
+     b=rand()%1000;
+     aux=to_string(a);
+     aux2=to_string(b);
      Jugador jug(aux,aux2);
      j.push_back(jug);
     }
@@ -33,5 +37,5 @@ cout << endl;
 
 
 
-bool maymen(Jugador i,Jugador j){ return j.getDNI()>i.getDNI();}
-bool menmay(Jugador i,Jugador j){ return i.getDNI()>j.getDNI();}
+bool maymen(Jugador i,Jugador j){ return stoi(j.getDNI())>stoi(i.getDNI());}
+bool menmay(Jugador i,Jugador j){ return stoi(i.getDNI())>stoi(j.getDNI());}

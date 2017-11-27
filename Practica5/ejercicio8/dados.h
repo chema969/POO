@@ -1,6 +1,6 @@
 #ifndef DADOS_H
 #define DADOS_H
-
+#include <iostream>
 #include <vector>
 using namespace std;
   class Dados{
@@ -106,6 +106,9 @@ using namespace std;
    EFECTOS da a v los valores de v2_
    */
      void getUltimos2 (int *v);
+     friend ostream &operator<<(ostream &salida,const Dados &d);
+     friend istream &operator>>(istream &entrada, Dados &d);
     };
+
 
 #endif
